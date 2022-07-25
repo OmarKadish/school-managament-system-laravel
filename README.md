@@ -1,1 +1,1 @@
-# school-managament-system
+# school-managament-system-laravel
