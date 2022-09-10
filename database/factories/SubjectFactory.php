@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Classroom;
 use App\Models\Subject;
+use App\Models\Teacher;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -27,11 +29,10 @@ class SubjectFactory extends Factory
     {
         return [
             'name' => $this->faker->jobTitle(),
-            'subject_code' => 'SC-000001',
             'description' => $this->faker->sentence(),
             'semester' => rand(0,1),
-            'teacher_id' => rand(1,10),
-            'classroom_id' => rand(1,5),
+            'teacher_id' => Teacher::inRandomOrder()->first(),
+            'classroom_id' => Classroom::inRandomOrder()->first(),
         ];
     }
 }

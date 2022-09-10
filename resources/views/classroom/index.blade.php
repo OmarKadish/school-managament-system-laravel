@@ -15,7 +15,7 @@
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Description</th>
-                                        <th>Fill State</th>
+{{--                                        <th>Fill State</th>--}}
                                         <th>Students Count</th>
                                         <th>Actions</th>
                                     </tr>
@@ -33,13 +33,13 @@
                                             {{$classroom->description}}
                                         </td>
 {{--                                        Todo: Add limit for the classes and show the fill state of each one.--}}
-                                        <td>
+                                        {{--<td>
                                             <div class="progress">
                                                 <div class="progress-bar bg-success" role="progressbar"
                                                      style="width: 25%" aria-valuenow="25" aria-valuemin="0"
                                                      aria-valuemax="100"></div>
                                             </div>
-                                        </td>
+                                        </td>--}}
                                         <td style="text-align: center">
                                             {{$classroom->students->count()}}
                                         </td>

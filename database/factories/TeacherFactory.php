@@ -28,9 +28,6 @@ class TeacherFactory extends Factory
         return [
             'first_name' => $this->faker->firstName(),
             'surname' => $this->faker->lastName(),
-            //in The Seed this doesn't work because the seed run all at once,
-            // so it won't be able to check the DB for previous teacher_num.
-            'teacher_num' => 'TN-000001',
             'email' => $this->faker->email(),
             'phone_number' => $this->faker->phoneNumber(),
             'birth_date' => Carbon::now()->subYears(rand(15,40)),
