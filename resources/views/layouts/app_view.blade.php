@@ -26,9 +26,9 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo me-5" href="/"><img src="{{asset('images/logo.svg')}}" class="me-2"
+            <a class="navbar-brand brand-logo me-5" href="/"><img src="" class="me-2"
                                                                            alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="/"><img src="{{asset('images/logo-mini.svg')}}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="/"><img src="" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -149,7 +149,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <a class="dropdown-item">
-                            <i class="ti-user text-primary"></i>
+                            <i class="ti-user"></i>
                             {{auth()->user()->name}}
                         </a>
                         <!-- Authentication -->
@@ -158,7 +158,7 @@
                             <a class="dropdown-item" href="route('logout')"
                                                    onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                                <i class="ti-power-off text-primary">
+                                <i class="ti-power-off">
                                 {{ __('Log Out') }}</i>
                             </a>
 

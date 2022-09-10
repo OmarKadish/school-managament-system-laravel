@@ -26,7 +26,6 @@
         <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
             <div class="row flex-grow">
                 <div class="col-lg-6 d-flex align-items-center justify-content-center">
-
                     @yield('content')
                 </div>
                 <div class="col-lg-6 login-half-bg d-flex flex-row">

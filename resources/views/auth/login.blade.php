@@ -2,7 +2,7 @@
 @section('content')
 <div class="auth-form-transparent text-left p-3">
     <div class="brand-logo">
-        <img src="{{asset('/images/logo.svg')}}" alt="logo">
+
     </div>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
