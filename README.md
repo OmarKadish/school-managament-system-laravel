@@ -13,11 +13,31 @@
 - School Management System is the system that manages students, teachers, classes, subjects, and many more. Here, the user can use the features of CRUD and manage students, teachers, subjects, and classes. Now talking about all the main functions of the system that is the feature to add, edit, delete, and view students, teachers, and classes. While adding a student, the user must provide full name, select gender, date of birth, select class, enrollment date, and parent's phone numbers. Additionally, students, teachers, classes, and subjects all have a unique and auto-generated number.
       This sort of system may be used by middle and high schools to handle information in a methodical manner.
 
-## Project Platform and Programing Languages: 
-- Laravel PHP Framework; A PHP framework includes libraries for commonly used functions, reducing the amount of original code that developers must write from scratch.
-      Laravel is a free, open-source PHP web framework built by Taylor Otwell and based on Symfony. It is designed for building online applications that follow the model–view–controller (MVC) architectural pattern.
-      As For the Database MySQL will be used which is a relational database management system that is free and open source.
-      IDE Tool used for this project is PhpStorm.
+## :signal_strength: Project Platform and Programing Languages: 
+  Laravel PHP Framework; A PHP framework includes libraries for commonly used functions, reducing the amount of original code that developers must write from scratch.
+  Laravel is a free, open-source PHP web framework built by Taylor Otwell and based on Symfony. 
+
+  It is designed for building online applications that follow the model–view–controller (MVC) architectural pattern.
+
+  As For the Database MySQL will be used which is a relational database management system that is free and open source.
+
+  IDE Tool used for this project is PhpStorm.
+
+## :floppy_disk: Setup
+
+* Clone the repo `https://github.com/OmarKadish/school-managament-system-laravel.git`
+
+* Install dependencies with this code line...
+Run `composer install`
+
+* Make sure you have your key generated. If not! Generate it with this command..
+`php artisan key:generate`
+
+* Run migration and seeds
+`php artisan migrate:fresh --seed`
+
+* To start the development environment
+Run `php artisan serve`
 
 ## System Interfaces: 
 These interfaces will be actual interfaces through which the user will perform the desired tasks.
@@ -28,28 +48,27 @@ These interfaces will be actual interfaces through which the user will perform t
 * Subjects Management Interface: Allows the managers to use the full CRUD features for subjects, define subjects class, and assign a teacher for it.
 * Users Management Interface: Allows the managers to add new manager accounts or delete an exciting account that is no longer needed.
 
+## :camera: Preview
+#### Login Page
+  ![image](https://user-images.githubusercontent.com/74814002/189502588-aaeba389-c599-449b-b23b-c4cece8d4f21.png)
 
-# Login Page
-  ![img.png](img.png)
+#### Dashboard Page
+  ![image](https://user-images.githubusercontent.com/74814002/189502602-3b497a67-f620-47b8-9e12-e8b26af401db.png)
 
-# Dashboard Page
-  ![img_2.png](img_2.png)
+#### Create Instance Sample Page
+![image](https://user-images.githubusercontent.com/74814002/189502625-9532f029-fbd2-42ee-8f07-0083fd9dc31a.png)
 
-# Create Instance Sample Page
-![img_3.png](img_3.png)
+#### Create Instance Sample Page
+![image](https://user-images.githubusercontent.com/74814002/189502787-09a2b41c-4b42-4039-9609-1141913b475b.png)
 
-# Installation
-    #Install dependencies with this code line...
-    composer install
+## :file_folder: License
 
-    #Make sure you have key generated. If not generate it with this command..
-    php artisan key:generate
+* This project is licensed under the terms of the MIT license.
 
-    #Run migration and seeds
-    php artisan migrate:fresh --seed
+## :envelope: About me
+
+* Repo created by [Omar Kadish](https://github.com/OmarKadish), My portfolio: [Omar](https://omarkadish.wordpress.com/)
 
 Hope it will help.
 Good Luck.
-
-[Omar KADISH](https://www.linkedin.com/in/omar-kadish/)
 
