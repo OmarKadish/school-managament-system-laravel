@@ -7,15 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{asset('/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="{{asset('/vendors/base/vendor.bundle.base.css')}}">
     <script
         src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
         crossorigin="anonymous"></script>
     <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
     <!-- endinject -->
@@ -145,13 +143,10 @@
                 </li>--}}
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                        Hi! {{auth()->user()->name}}
                         <img src="{{url('/images/'.auth()->user()->photo_path)}}" alt="profile"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item">
-                            <i class="ti-user"></i>
-                            {{auth()->user()->name}}
-                        </a>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -161,7 +156,6 @@
                                 <i class="ti-power-off">
                                 {{ __('Log Out') }}</i>
                             </a>
-
                         </form>
                     </div>
                 </li>
@@ -279,7 +273,7 @@
 <!-- partial:partials/footer -->
 <footer class="footer">
     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.linkedin.com/in/omar-kadish" target="_blank">Omar KADISH</a> 2021 - {{ date("Y") }}</span>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://omarkadish.wordpress.com/" target="_blank">Omar KADISH</a> 2021 - {{ date("Y") }}</span>
     </div>
 </footer>
 <!-- partial -->
@@ -326,18 +320,15 @@
 <!-- plugins:js -->
 
 <script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script>
-<script src="{{asset('vendors/chart.js/Chart.min.js')}}"></script>
-<script src="{{asset('js/jquery.cookie.js')}}" type="text/javascript"></script>
-<!-- inject:js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
+
+<!-- Custom js for dashboard-->
 <script src="{{asset('js/off-canvas.js')}}"></script>
 <script src="{{asset('js/hoverable-collapse.js')}}"></script>
 <script src="{{asset('js/template.js')}}"></script>
-<script src="{{asset('js/todolist.js')}}"></script>
 <script src="{{asset('js/chart.js')}}"></script>
 <script src="{{asset('js/file-upload.js')}}"></script>
-<!-- endinject -->
-<!-- Custom js for dashboard-->
-<script src="{{asset('js/dashboard.js')}}"></script>
 <!-- End custom js for dashboard-->
 
 

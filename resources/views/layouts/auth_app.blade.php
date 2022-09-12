@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{asset('/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="{{asset('/vendors/base/vendor.bundle.base.css')}}">
     <!-- endinject -->
     <!-- plugin css for this page -->
@@ -45,7 +45,6 @@
 <script src="{{asset('/js/off-canvas.js')}}"></script>
 <script src="{{asset('/js/hoverable-collapse.js')}}"></script>
 <script src="{{asset('/js/template.js')}}"></script>
-<script src="{{asset('/js/todolist.js')}}"></script>
 <!-- endinject -->
 </body>
 
