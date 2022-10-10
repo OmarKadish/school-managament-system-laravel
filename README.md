@@ -41,7 +41,7 @@ Run `php artisan serve`
 
 ## :floppy_disk: Developer notes:
 
-We used the <a href="https://github.com/nnjeim/world" target="_blank">World</a> repo; A Laravel package which provides a list of the countries, states, cities, timezones, currencies and languages. But as a way of change and to work with Ajax insead of using api we used an XMLHttpRequest to list all countries and fill the other dropbox with the states according to the selected country. 
+We used the <a href="https://github.com/nnjeim/world/" target="_blank">World</a> repo; A Laravel package which provides a list of the countries, states, cities, timezones, currencies and languages. But as a way of change and to work with Ajax insead of using api we used an XMLHttpRequest to list all countries and fill the other dropbox with the states according to the selected country. 
 
 
 
