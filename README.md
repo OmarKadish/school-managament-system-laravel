@@ -39,6 +39,12 @@ Run `composer install`
 * To start the development environment
 Run `php artisan serve`
 
+## :floppy_disk: Developer notes:
+
+We used the [World](https://github.com/nnjeim/world) repo; A Laravel package which provides a list of the countries, states, cities, timezones, currencies and languages. But as a way of change and to work with Ajax insead of using api we used an XMLHttpRequest to list all countries and fill the other dropbox with the states according to the selected country. 
+
+
+
 ## System Interfaces: 
 These interfaces will be actual interfaces through which the user will perform the desired tasks.
 * Login System: maintaining the login information of a manager after validating the Email and Password. The Registering System is halted thus only the system managers can create new admin account in the system.
@@ -58,7 +64,7 @@ These interfaces will be actual interfaces through which the user will perform t
 #### Create Instance Sample Page
 ![image](https://user-images.githubusercontent.com/74814002/189502625-9532f029-fbd2-42ee-8f07-0083fd9dc31a.png)
 
-#### Create Instance Sample Page
+#### List Instances Sample Page
 ![image](https://user-images.githubusercontent.com/74814002/189502787-09a2b41c-4b42-4039-9609-1141913b475b.png)
 
 ## :file_folder: License
