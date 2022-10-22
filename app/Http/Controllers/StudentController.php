@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentAddUpdateRequest;
 use App\Models\Classroom;
 use App\Models\Student;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -46,21 +51,11 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param StudentAddUpdateRequest $request
+     * @return Application|RedirectResponse|Response|Redirector
      */
-    public function store(Request $request)
+    public function store(StudentAddUpdateRequest $request)
     {
-        $this->validate($request, [
-            'first_name' => 'required|max:30',
-            'surname' => 'required|max:30',
-            'birth_date' => 'required',
-            'classroom' => ['required',Rule::exists('classrooms', 'id')],
-            'parent_phone_number' => 'required|regex:/(0)[0-9]{10}/',
-            'second_phone_number' => 'regex:/(0)[0-9]{10}/',
-            'enrollment_date' => 'required|date|after_or_equal:today',
-            'address' => 'required',
-        ]);
         try {
             // Safely perform set of DB related queries if fail rollback all.
             DB::transaction(function () use ($request){
@@ -112,23 +107,13 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param StudentAddUpdateRequest $request
+     * @param int $id
+     * @return Application|RedirectResponse|Response|Redirector
      */
-    public function update(Request $request, int $id)
+    public function update(StudentAddUpdateRequest $request, int $id)
     {
         $student = Student::findOrFail($id);
-        $this->validate($request, [
-            'first_name' => 'required|max:30',
-            'surname' => 'required|max:30',
-            'birth_date' => 'required',
-            'classroom' => ['required',Rule::exists('classrooms', 'id')],
-            'parent_phone_number' => 'required|regex:/(0)[0-9]{10}/',
-            'second_phone_number' => 'regex:/(0)[0-9]{10}/',
-            'enrollment_date' => 'required|date',
-            'address' => 'required',
-        ]);
         try {
             // Safely perform set of DB related queries if fail rollback all.
             DB::transaction(function () use ($request, $student){

@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeacherAddUpdateRequest;
 use App\Models\Classroom;
 use App\Models\Subject;
 use App\Models\Teacher;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -49,21 +54,11 @@ class TeacherController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return false|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector|string
+     * @param TeacherAddUpdateRequest $request
+     * @return false|Application|RedirectResponse|Response|Redirector|string
      */
-    public function store(Request $request)
+    public function store(TeacherAddUpdateRequest $request)
     {
-        $this->validate($request, [
-            'first_name' => 'required|max:30',
-            'surname' => 'required|max:30',
-            'birth_date' => 'required',
-            'email' => 'required|email|unique:teachers,email',
-            //'classroom' => ['required',Rule::exists('classrooms', 'id')],
-            'phone_number' => 'required|regex:/(0)[0-9]{10}/',
-            'photo' => 'required|mimes:jpeg,bmp,png,jpg|max:2048',
-            'address' => 'required',
-        ]);
         try {
             // Safely perform set of DB related queries if fail rollback all.
             DB::transaction(function () use ($request){

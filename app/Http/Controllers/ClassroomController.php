@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClassroomAddUpdateRequest;
 use App\Models\Classroom;
 use App\Models\Student;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use mysql_xdevapi\Exception;
@@ -24,7 +29,7 @@ class ClassroomController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -35,7 +40,7 @@ class ClassroomController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -45,14 +50,11 @@ class ClassroomController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param ClassroomAddUpdateRequest $request
+     * @return Application|RedirectResponse|Response|Redirector
      */
-    public function store(Request $request)
+    public function store(ClassroomAddUpdateRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
         $input = $request->all();
         Classroom::create($input);
         return redirect('/classroom')->with('success', 'A New Classroom Added Successfully.');
@@ -73,7 +75,7 @@ class ClassroomController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(int $id)
     {
@@ -84,15 +86,12 @@ class ClassroomController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param ClassroomAddUpdateRequest $request
+     * @param int $id
+     * @return Application|RedirectResponse|Response|Redirector
      */
-    public function update(Request $request, int $id)
+    public function update(ClassroomAddUpdateRequest $request, int $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
         $input = $request->all();
         // one way to update a record.
 /*        $classroom = Classroom::findOrFail($id);
@@ -116,7 +115,7 @@ class ClassroomController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(int $id)
     {

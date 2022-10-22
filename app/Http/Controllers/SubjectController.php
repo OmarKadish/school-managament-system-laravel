@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubjectAddUpdateRequest;
 use App\Models\Classroom;
 use App\Models\Subject;
 use App\Models\Teacher;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -47,18 +52,11 @@ class SubjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param SubjectAddUpdateRequest $request
+     * @return Application|RedirectResponse|Response|Redirector
      */
-    public function store(Request $request)
+    public function store(SubjectAddUpdateRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:60',
-            'semester' => 'required',
-            'description' => 'required',
-            'teacher' => ['required',Rule::exists('teachers', 'id')],
-            'classroom' => ['required',Rule::exists('classrooms', 'id')],
-        ]);
         try {
             DB::transaction(function () use ($request){
                 Subject::insert([
@@ -106,20 +104,13 @@ class SubjectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @param SubjectAddUpdateRequest $request
+     * @param int $id
+     * @return Application|RedirectResponse|Response|Redirector
      */
-    public function update(Request $request, int $id)
+    public function update(SubjectAddUpdateRequest $request, int $id)
     {
         $subject = Subject::findOrFail($id);
-        $this->validate($request, [
-            'name' => 'required|max:60',
-            'semester' => 'required',
-            'description' => 'required',
-
-            'classroom' => ['required',Rule::exists('classrooms', 'id')],
-        ]);
         try {
             DB::transaction(function () use ($request, $subject){
                 $subject->name = $request->get('name');

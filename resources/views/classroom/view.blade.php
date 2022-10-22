@@ -20,7 +20,12 @@
                                             <label for="name" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" name="name" id="name" autofocus
-                                                       placeholder="Name" value="{{isset($classroom)? $classroom->name: ''}}">
+                                                       placeholder="Name" value="{{isset($classroom)? $classroom->name: old('name')}}">
+                                                @if ($errors->has('name'))
+                                                    <div class="alert alert-danger">
+                                                        {{$errors->first('name')}}
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -30,8 +35,13 @@
                                         <div class="form-group row">
                                             <label for="myTextarea" class="col-sm-2 col-form-label">Description</label>
                                             <div class="col-sm-10">
-                                                <textarea type="text" rows="3" class="form-control" name="description"
-                                                          id="myTextarea">{{isset($classroom)? $classroom->description : ''}}</textarea>
+                                                <textarea type="text" rows="3" class="form-control" name="description" placeholder="Description"
+                                                          id="myTextarea">{{isset($classroom)? $classroom->description : old('description')}}</textarea>
+                                                @if ($errors->has('description'))
+                                                    <div class="alert alert-danger">
+                                                        {{$errors->first('description')}}
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
