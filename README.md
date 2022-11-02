@@ -9,6 +9,8 @@
 
 
 [![This project Wakatime badge](https://wakatime.com/badge/user/7ff17389-c918-439b-9b81-291fae77221d/project/79d37c1a-0e85-4879-8691-2c59abdb6588.svg)](https://wakatime.com/@7ff17389-c918-439b-9b81-291fae77221d)
+
+
 # School Management System (Laravel).
 
 ## Objective:
